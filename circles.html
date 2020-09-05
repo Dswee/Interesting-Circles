@@ -31,21 +31,21 @@
         var y;
         var dx,dy,xx,yy;
         function getevent(e){
-        e=e||window.event;
+            e=e||window.event;
         
-        getXY(e);
+            getXY(e);
         }
        var c=0;
         function getXY(e){
             
-        posx=e.clientX;
-        posy=e.clientY;
-        if(c==0){
-            for(var i=0;i<160;i++){
-               xx[i]=posx;
-               yy[i]=posy;
-            }
-               c=1;
+            posx=e.clientX;
+            posy=e.clientY;
+            if(c==0){
+                for(var i=0;i<160;i++){
+                    xx[i]=posx;
+                    yy[i]=posy;
+                }
+                c=1;
             }
         
       //  return {x:e.clientX,y:e.clientY,f:1};
