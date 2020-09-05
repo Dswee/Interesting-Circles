@@ -15,15 +15,15 @@
         //ctx.strokeStyle="rgba(0,0,0,0)";
         //ctx.fillRect(0, 0, c.width, c.height);
        
-        for (var i=0;i<160;i++){
+        for (var i=0;i<100;i++){
             R[i]=-5*i;
         }
         //var v=new Array(160);
         //for (var i=0;i<160;i++){
         //    v[i]=0.05-0.05*(i/60-1)*(i/60-1)*(i/60-1);
         //}
-        var xx=new Array(160);
-        var yy=new Array(160);
+        var xx=new Array(100);
+        var yy=new Array(100);
 
         var posx;
         var posy; 
@@ -41,7 +41,7 @@
             posx=e.clientX;
             posy=e.clientY;
             if(c==0){
-                for(var i=0;i<160;i++){
+                for(var i=0;i<100;i++){
                     xx[i]=posx;
                     yy[i]=posy;
                 }
@@ -66,7 +66,7 @@
             ctx.beginPath();
             ctx.clearRect(0,0,1920,1080);
                
-            for(var j=0;j<160;j++){    
+            for(var j=0;j<100;j++){    
                  ctx.beginPath();
                  var r;
                   
@@ -76,7 +76,7 @@
                   else {
                   r=R[j];}
                   
-                  if(R[j]>800){
+                  if(R[j]>500){
                       R[j]=0;
                   } 
                   R[j]=R[j]+5;
