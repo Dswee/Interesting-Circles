@@ -16,12 +16,12 @@
         //ctx.fillRect(0, 0, c.width, c.height);
        
         for (var i=0;i<160;i++){
-            R[i]=-3*i;
+            R[i]=-5*i;
         }
-        var v=new Array(160);
-        for (var i=0;i<160;i++){
-            v[i]=0.05-0.05*(i/60-1)*(i/60-1)*(i/60-1);
-        }
+        //var v=new Array(160);
+        //for (var i=0;i<160;i++){
+        //    v[i]=0.05-0.05*(i/60-1)*(i/60-1)*(i/60-1);
+        //}
         var xx=new Array(160);
         var yy=new Array(160);
 
@@ -76,14 +76,14 @@
                   else {
                   r=R[j];}
                   
-                  if(R[j]>480){
+                  if(R[j]>800){
                       R[j]=0;
                   } 
-                  R[j]=R[j]+3;
+                  R[j]=R[j]+5;
                   dx=posx-xx[j];
                   dy=posy-yy[j];
-                  xx[j]+=dx/(r-2);
-                  yy[j]+=dy/(r-2);
+                  xx[j]+=dx/(r-4);
+                  yy[j]+=dy/(r-4);
               
                   ctx.arc(xx[j],yy[j],r,0,2*Math.PI);
                   ctx.stroke();
