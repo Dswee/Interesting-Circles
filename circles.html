@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset = "utf -8">
+<title>htmlinit</title>
+
+</head>
+<body background="black">
+    
+    <canvas id="can" style="background:rgba(0,0,0,1); "width = "1920" height="1080" ></canvas>
+    <script>
+        var c = document.getElementById("can");
+        var ctx=c.getContext("2d");
+        var R=new Array(60);
+        //ctx.strokeStyle="rgba(0,0,0,0)";
+        //ctx.fillRect(0, 0, c.width, c.height);
+       
+        for (var i=0;i<160;i++){
+            R[i]=-3*i;
+        }
+        var v=new Array(160);
+        for (var i=0;i<160;i++){
+            v[i]=0.05-0.05*(i/60-1)*(i/60-1)*(i/60-1);
+        }
+        var xx=new Array(160);
+        var yy=new Array(160);
+
+        var posx;
+        var posy; 
+        var x;
+        var y;
+        var dx,dy,xx,yy;
+        function getevent(e){
+        e=e||window.event;
+        
+        getXY(e);
+        }
+       var c=0;
+        function getXY(e){
+            
+        posx=e.clientX;
+        posy=e.clientY;
+        if(c==0){
+            for(var i=0;i<160;i++){
+               xx[i]=posx;
+               yy[i]=posy;
+            }
+               c=1;
+            }
+        
+      //  return {x:e.clientX,y:e.clientY,f:1};
+        }
+        document.onmousemove=getevent;  
+        
+        //setInterval(function(){
+        //   x=posx;
+       //    y=posy; 
+       //    dx=posx-x;
+       //    dy=posy-y;
+      //  },1000/60)
+      ctx.globalCompositeOperation="lighter"
+      ctx.lineWidth = 15;
+      ctx.strokeStyle = 'rgba(88,188,255,0.1)';
+        setInterval(function(){
+          
+            ctx.beginPath();
+            ctx.clearRect(0,0,1920,1080);
+               
+            for(var j=0;j<160;j++){ 
+             
+                ctx.beginPath();
+              //  if(xx!=posx||yy!=posy){
+                  var r;
+                  
+                  if(R[j]<0){
+                    r=0;
+                  }
+                  else {
+                  r=R[j];}
+                  
+                  if(R[j]>480){
+                      R[j]=0;
+                  } 
+                  R[j]=R[j]+3;
+                dx=posx-xx[j];
+                dy=posy-yy[j];
+                xx[j]+=dx/(r-2);
+                yy[j]+=dy/(r-2);
+              //  }
+                ctx.arc(xx[j],yy[j],r,0,2*Math.PI);
+                ctx.stroke();
+            }
+            
+        },1000/60)
+
+    </script>
+</body>
+</html>
