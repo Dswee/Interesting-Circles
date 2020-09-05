@@ -36,7 +36,7 @@
             getXY(e);
         }
        var c=0;
-        function getXY(e){
+       function getXY(e){
             
             posx=e.clientX;
             posy=e.clientY;
@@ -50,7 +50,7 @@
         
       //  return {x:e.clientX,y:e.clientY,f:1};
         }
-        document.onmousemove=getevent;  
+      document.onmousemove=getevent;  
         
         //setInterval(function(){
         //   x=posx;
@@ -66,13 +66,11 @@
             ctx.beginPath();
             ctx.clearRect(0,0,1920,1080);
                
-            for(var j=0;j<160;j++){ 
-             
-                ctx.beginPath();
-              //  if(xx!=posx||yy!=posy){
-                  var r;
+            for(var j=0;j<160;j++){    
+                 ctx.beginPath();
+                 var r;
                   
-                  if(R[j]<0){
+                 if(R[j]<0){
                     r=0;
                   }
                   else {
@@ -82,13 +80,13 @@
                       R[j]=0;
                   } 
                   R[j]=R[j]+3;
-                dx=posx-xx[j];
-                dy=posy-yy[j];
-                xx[j]+=dx/(r-2);
-                yy[j]+=dy/(r-2);
-              //  }
-                ctx.arc(xx[j],yy[j],r,0,2*Math.PI);
-                ctx.stroke();
+                  dx=posx-xx[j];
+                  dy=posy-yy[j];
+                  xx[j]+=dx/(r-2);
+                  yy[j]+=dy/(r-2);
+              
+                  ctx.arc(xx[j],yy[j],r,0,2*Math.PI);
+                  ctx.stroke();
             }
             
         },1000/60)
